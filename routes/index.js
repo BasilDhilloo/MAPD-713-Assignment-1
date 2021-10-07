@@ -56,7 +56,6 @@ router.get('/api/image/:id', (req,res) => {
 })
 
 //Update the images
-
 router.put('/api/images/edit/:id', (req,res) => {
     putCount = putCount + 1;
     const img = {
