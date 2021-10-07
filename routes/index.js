@@ -19,6 +19,7 @@ router.get('/api/images', (req, res) => {
             console.log(err)
         }
     });
+    console.log("Get Request")
     console.log("Get Request:", getCount)
     
 })
@@ -36,7 +37,8 @@ router.post('/api/images/add', (req, res) => {
         res.status(200).json({code: 200, message: 'Image Added Successfully!', 
         addImage:data})
     });
-    console.log("Put Request:", postCount)
+    console.log("Post Request")
+    console.log("Post Request:", postCount)
 })
 
 //Get the Single Image
@@ -49,6 +51,7 @@ router.get('/api/image/:id', (req,res) => {
             console.log(err)
         }
     })
+    console.log("Get Request")
     console.log("Get Request:", getCount)
 })
 
@@ -67,9 +70,10 @@ router.put('/api/images/edit/:id', (req,res) => {
             res.status(200).json({ code: 200, message: "Image Updated Successfully",
         updateImage: data})
         }else{
-            console.log("Error", err)
+            console.log(err)
         }
     })
+    console.log("Put Request")
     console.log("Put Request:", putCount)
 })
 
@@ -84,6 +88,22 @@ router.delete('/api/images/:id', (req,res) => {
             console.log(err)
         }
     })
+    console.log("Delete Request")
+    console.log("Delete Request:", delCount)
+})
+
+//Delete the images
+router.delete('/api/images', (req,res) => {
+    delCount = delCount + 1;
+    Image.deleteMany({}, (err, data) => {
+        if(!err){
+            res.status(200).json({ code: 200, message: "Images Deleted Successfully",
+            deleteImage: data})
+        }else{
+            console.log(err)
+        }
+    })
+    console.log("Delete Request")
     console.log("Delete Request:", delCount)
 })
 
