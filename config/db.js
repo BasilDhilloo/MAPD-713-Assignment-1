@@ -8,6 +8,7 @@ const connectDB = async () => {
             useUnifiedTopology: true
         });
         console.log(`Mongo DB Connected: ${connectt.connection.host}`)
+        console.log("The server is running on port 5000")
     }
     catch(err){
         console.log(err)
